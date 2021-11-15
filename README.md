@@ -1,6 +1,16 @@
-## text2df
+# text2df
 
 A simple R package for reshaping text data.
+
+## Installation
+
+You can download the development version from GitHub with:
+
+``` r
+devtools::install_github("jaytimm/text2df")
+```
+
+## Usage
 
 ``` r
 library(tidyverse)
@@ -42,14 +52,22 @@ x1 <- corpus %>%
   text2df::tif2sentence() %>%
   text2df::tif2token()
 
-x1[[99]]
+x1[1:2]
 ```
 
-    ##  [1] "We"                   "manually"             "reviewed"            
-    ##  [4] "resulting"            "grants"               "to"                  
-    ##  [7] "determine"            "whether"              "they"                
-    ## [10] "directly"             "funded"               "psychedelic-assisted"
-    ## [13] "therapy"              "clinical"             "trials"              
+    ## $`34750350.1`
+    ##  [1] "Psilocybin"  "has"         "shown"       "promise"     "for"        
+    ##  [6] "the"         "treatment"   "of"          "mood"        "disorders"  
+    ## [11] ","           "which"       "are"         "often"       "accompanied"
+    ## [16] "by"          "cognitive"   "dysfunction" "including"   "cognitive"  
+    ## [21] "rigidity"    "."          
+    ## 
+    ## $`34750350.2`
+    ##  [1] "Recent"                 "studies"                "have"                  
+    ##  [4] "proposed"               "neuropsychoplastogenic" "effects"               
+    ##  [7] "as"                     "mechanisms"             "underlying"            
+    ## [10] "the"                    "enduring"               "therapeutic"           
+    ## [13] "effects"                "of"                     "psilocybin"            
     ## [16] "."
 
 ### token2df

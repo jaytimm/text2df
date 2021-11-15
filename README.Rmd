@@ -9,4 +9,48 @@ output:
 
 A simple R package for reshaping text data.
 
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+pmids <- PubmedMTK::pmtk_search_pubmed(search_term = 'Psilocybin', 
+                                       fields = c('TIAB','MH'))
+
+corpus <- PubmedMTK::pmtk_get_records2(pmids = pmids$pmid) %>%
+  bind_rows() %>%
+  filter(!is.na(abstract)) %>%
+  rename(doc_id = pmid, text = abstract)
+```
+
+
+### tif2sentence
+
+```{r}
+x0 <- corpus %>% 
+  text2df::tif2sentence()
+
+head(x0) %>% knitr::kable()
+```
+
+
+
+### tif2token
+
+```{r}
+x1 <- corpus %>% 
+  text2df::tif2sentence() %>%
+  text2df::tif2token()
+
+x1[[99]]
+```
+
+
+### token2df
+
+```{r}
+x2 <- corpus %>% 
+  text2df::tif2sentence() %>%
+  text2df::tif2token() %>%
+  text2df::token2df()
+
+x2 %>% head() %>% knitr::kable()
+```
 

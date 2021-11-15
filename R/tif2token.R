@@ -15,7 +15,7 @@ tif2token <- function(tif){
 
                             filter = corpus::text_filter(
                               map_case = FALSE,
-                              combine = abbrevs,
+                              combine = c(corpus::abbreviations_en, 'Gov.', 'Sen.'),
                               connector = '_' ) )
 
   names(x1) <- tif$doc_id

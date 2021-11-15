@@ -1,0 +1,10 @@
+
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+## text2df 
+
+A simple R package for reshaping text data.

@@ -7,19 +7,18 @@ output:
 
 # text2df 
 
-A simple R package for reshaping text data.
+A simple R package for working with text data.  Mostly a wrapper for the `corpus`, `quanteda` & `udpipe` packages.  Mostly some thoughts. An attempt at a uniform framework.  
 
 
-## Installation
-
-You can download the development version from GitHub with:
+## Demo
 
 ```{r eval=FALSE}
 devtools::install_github("jaytimm/text2df")
 ```
 
 
-## Usage
+
+### Some data
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -33,6 +32,8 @@ corpus <- PubmedMTK::pmtk_get_records2(pmids = pmids$pmid) %>%
 ```
 
 
+
+
 ### tif2sentence
 
 ```{r}
@@ -44,6 +45,7 @@ head(x0) %>% knitr::kable()
 
 
 
+
 ### tif2token
 
 ```{r}
@@ -51,8 +53,35 @@ x1 <- corpus %>%
   text2df::tif2sentence() %>%
   text2df::tif2token()
 
-x1[1:2]
+x1[c(4, 10)]
 ```
+
+
+
+
+### token2mwe
+
+```{r}
+library(PubmedMTK)
+data("pmtk_tbl_mesh")
+psych <- subset(pmtk_tbl_mesh, cats == 'Psychiatry and Psychology')
+mw_psych <- subset(psych, grepl(' ', TermName) & !grepl(',', TermName))$TermName
+sample(mw_psych, 10)
+```
+
+
+
+```{r}
+x10 <- corpus %>% 
+  text2df::tif2sentence() %>%
+  text2df::tif2token() %>%
+  text2df::token2mwe(mwe = mw_psych)
+
+x10[c(4, 10)]
+```
+
+
+
 
 
 ### token2df
@@ -61,8 +90,34 @@ x1[1:2]
 x2 <- corpus %>% 
   text2df::tif2sentence() %>%
   text2df::tif2token() %>%
+  text2df::token2mwe(mwe = mw_psych) %>%
   text2df::token2df()
 
 x2 %>% head() %>% knitr::kable()
 ```
+
+
+
+
+### token2annotation
+
+```{r include=FALSE}
+locald <- '/home/jtimm/pCloudDrive/GitHub/packages/biberizer/model'
+```
+
+
+```{r message=FALSE, warning=FALSE}
+setwd(locald)
+udmodel <- udpipe::udpipe_load_model('english-ewt-ud-2.3-181115.udpipe')
+
+x3 <- corpus %>% 
+  text2df::tif2sentence() %>%
+  text2df::tif2token() %>%
+  text2df::token2mwe(mwe = mw_psych) %>%
+  text2df::token2annotation(model = udmodel)
+
+x3 %>% head() %>% knitr::kable()
+```
+
+
 

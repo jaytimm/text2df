@@ -2,7 +2,9 @@
 
 export(tif2sentence)
 export(tif2token)
+export(token2annotation)
 export(token2df)
+export(token2mwe)
 importFrom(data.table,":=")
 importFrom(data.table,.BY)
 importFrom(data.table,.EACHI)

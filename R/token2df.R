@@ -20,6 +20,7 @@ token2df <- function(tok){
   }
 
   df[, token_id := data.table::rowid(doc_id)]
+  df[, term_id := data.table::rowid(doc_id, sentence_id)]
   return(df)
 }
 

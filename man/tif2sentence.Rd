@@ -7,7 +7,7 @@
 tif2sentence(tif)
 }
 \arguments{
-\item{x}{A TIF}
+\item{tif}{A TIF}
 }
 \value{
 A data frame

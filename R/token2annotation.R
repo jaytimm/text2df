@@ -28,7 +28,6 @@ token2annotation <- function(tok,
                        tagger = tagger,
                        parser = parser)
 
-  if(parser == 'none'){t2 <- t2[, c(1:12)]}
-
+  if(parser == 'none'){t2 <- t2[, c(1:13)]}
   subset(t2, select= -c(paragraph_id, sentence))
 }

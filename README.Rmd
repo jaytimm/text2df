@@ -10,8 +10,6 @@ output:
 A simple R package for working with text data.  Mostly a wrapper for the `corpus`, `quanteda` & `udpipe` packages.  Mostly some thoughts. An attempt at a uniform framework.  
 
 
-## Demo
-
 ```{r eval=FALSE}
 devtools::install_github("jaytimm/text2df")
 ```
@@ -60,6 +58,18 @@ x1[c(4, 10)]
 
 
 ### token2mwe
+
+```{r eval=FALSE, include=FALSE}
+library(PubmedMTK)
+data("pmtk_tbl_mesh")
+
+lex <- pmtk_tbl_mesh %>%
+  filter(!grepl(',', TermName)) %>%
+  distinct(TermName, .keep_all = T) 
+
+mwe <- subset(lex, grepl(' ', TermName))$TermName
+```
+
 
 ```{r}
 library(PubmedMTK)

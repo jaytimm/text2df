@@ -1,7 +1,7 @@
 #' Convert TIF to sentence df
 #'
 #' @name tif2sentence
-#' @param x A TIF
+#' @param tif A TIF
 #' @return A data frame
 #'
 #' @export

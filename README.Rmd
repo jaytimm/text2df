@@ -6,7 +6,7 @@ output:
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/jaytimm/text2df/workflows/R-CMD-check/badge.svg)](https://github.com/jaytimm/text2df/actions)
-[![Travis build status](https://travis-ci.com/jaytimm/text2df.svg?branch=main)](https://travis-ci.com/jaytimm/text2df)
+[![Travis build status](https://app.travis-ci.com/jaytimm/text2df.svg?branch=master)](https://app.travis-ci.com/jaytimm/text2df)
 <!-- badges: end -->
 
 

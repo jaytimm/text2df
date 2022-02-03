@@ -2,7 +2,7 @@
 
 [![R-CMD-check](https://github.com/jaytimm/text2df/workflows/R-CMD-check/badge.svg)](https://github.com/jaytimm/text2df/actions)
 [![Travis build
-status](https://travis-ci.com/jaytimm/text2df.svg?branch=main)](https://travis-ci.com/jaytimm/text2df)
+status](https://app.travis-ci.com/jaytimm/text2df.svg?branch=master)](https://app.travis-ci.com/jaytimm/text2df)
 <!-- badges: end -->
 
 # text2df
@@ -99,16 +99,11 @@ mwe <- pmtk_tbl_mesh %>%
 sample(mwe$TermName, size = 10)
 ```
 
-    ##  [1] "fetal version"                          
-    ##  [2] "calcium dependent activator protein"    
-    ##  [3] "malignant peripheral nerve sheath tumor"
-    ##  [4] "benign fasciculation-cramp syndromes"   
-    ##  [5] "multiple endocrine neoplasia"           
-    ##  [6] "cottonseed oils"                        
-    ##  [7] "acute nonsuppurative periodontitides"   
-    ##  [8] "de quervain's disease"                  
-    ##  [9] "cd201 antigen"                          
-    ## [10] "chromosomal puff"
+    ##  [1] "sodium phosphate cotransporter"      "skin manifestations"                
+    ##  [3] "facial neuralgias"                   "genomic stabilities"                
+    ##  [5] "rab27 gtp binding proteins"          "dextran 40000"                      
+    ##  [7] "nutrition values"                    "partial knee replacement"           
+    ##  [9] "chemotherapy induced acral erythema" "canis latrans"
 
 ``` r
 x10 <- corpus %>% 

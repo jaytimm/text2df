@@ -16,3 +16,5 @@ Imports:
     quanteda,
     textshape,
     udpipe
+Suggests: 
+    covr

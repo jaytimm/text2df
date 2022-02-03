@@ -6,7 +6,7 @@ output:
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/jaytimm/text2df/workflows/R-CMD-check/badge.svg)](https://github.com/jaytimm/text2df/actions)
-[![Codecov test coverage](https://codecov.io/gh/jaytimm/text2df/branch/master/graph/badge.svg)](https://codecov.io/gh/jaytimm/text2df?branch=master)
+[![Travis build status](https://travis-ci.com/jaytimm/text2df.svg?branch=main)](https://travis-ci.com/jaytimm/text2df)
 <!-- badges: end -->
 
 
@@ -56,7 +56,7 @@ x1 <- corpus %>%
   text2df::tif2sentence() %>%
   text2df::tif2token()
 
-x1[c(1:3)]
+x1[c(66:68)]
 ```
 
 
@@ -84,7 +84,7 @@ x10 <- corpus %>%
   text2df::tif2token() %>%
   text2df::token2mwe(mwe = mwe$TermName)
 
-x10[c(1:3)]
+x10[c(66:68)]
 ```
 
 

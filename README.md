@@ -1,8 +1,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/jaytimm/text2df/workflows/R-CMD-check/badge.svg)](https://github.com/jaytimm/text2df/actions)
-[![Codecov test
-coverage](https://codecov.io/gh/jaytimm/text2df/branch/master/graph/badge.svg)](https://codecov.io/gh/jaytimm/text2df?branch=master)
+[![Travis build
+status](https://travis-ci.com/jaytimm/text2df.svg?branch=main)](https://travis-ci.com/jaytimm/text2df)
 <!-- badges: end -->
 
 # text2df
@@ -57,24 +57,33 @@ x1 <- corpus %>%
   text2df::tif2sentence() %>%
   text2df::tif2token()
 
-x1[c(1:3)]
+x1[c(66:68)]
 ```
 
-    ## $`35103814.1`
-    ##  [1] "Psychedelics" ","            "such"         "as"           "psilocybin"  
-    ##  [6] "represent"    "one"          "of"           "the"          "most"        
-    ## [11] "promising"    "current"      "therapeutic"  "approaches"   "in"          
-    ## [16] "psychiatry"   "."           
+    ## $`34267683.14`
+    ## [1] "Public"       "policy"       "implications" "are"          "discussed"   
+    ## [6] "."           
     ## 
-    ## $`35103814.2`
-    ##  [1] "Psychedelics"   "seem"           "to"             "have"          
-    ##  [5] "not"            "only"           "potent"         "antidepressant"
-    ##  [9] "effects"        "."             
+    ## $`34266372.1`
+    ##  [1] "There"       "is"          "a"           "growing"     "body"       
+    ##  [6] "of"          "research"    "suggesting"  "that"        "palliative" 
+    ## [11] "care"        "patients"    "coping"      "with"        "existential"
+    ## [16] "distress"    "may"         "benefit"     "from"        "psilocybin" 
+    ## [21] "."          
     ## 
-    ## $`35103814.3`
-    ##  [1] "Do"           "they"         "also"         "work"         "particularly"
-    ##  [6] "quickly"      ","            "i.e."         "within"       "one"         
-    ## [11] "day"          "?"
+    ## $`34266372.2`
+    ##  [1] "However"         ","               "there"           "is"             
+    ##  [5] "a"               "large"           "gap"             "regarding"      
+    ##  [9] "the"             "perceptions"     "of"              "palliative"     
+    ## [13] "care"            "providers"       "who"             "may"            
+    ## [17] "provide"         "education"       ","               "counseling"     
+    ## [21] "services"        ","               "recommendations" ","              
+    ## [25] "and"             "/"               "or"              "prescriptions"  
+    ## [29] "for"             "psilocybin"      "if"              "it"             
+    ## [33] "is"              "decriminalized"  ","               "commercialized" 
+    ## [37] ","               "and"             "/"               "or"             
+    ## [41] "federally"       "rescheduled"     "and"             "legalized"      
+    ## [45] "."
 
 ### token2mwe
 
@@ -90,16 +99,16 @@ mwe <- pmtk_tbl_mesh %>%
 sample(mwe$TermName, size = 10)
 ```
 
-    ##  [1] "mometasone furoate formoterol fumarate drug combination"
-    ##  [2] "pibids syndrome"                                        
-    ##  [3] "raw food"                                               
-    ##  [4] "sublingual gland neoplasms"                             
-    ##  [5] "medical device safety"                                  
-    ##  [6] "helper viruses"                                         
-    ##  [7] "hze particle"                                           
-    ##  [8] "bonin islands"                                          
-    ##  [9] "cosmetic reconstructive surgery"                        
-    ## [10] "anal sacs"
+    ##  [1] "fetal version"                          
+    ##  [2] "calcium dependent activator protein"    
+    ##  [3] "malignant peripheral nerve sheath tumor"
+    ##  [4] "benign fasciculation-cramp syndromes"   
+    ##  [5] "multiple endocrine neoplasia"           
+    ##  [6] "cottonseed oils"                        
+    ##  [7] "acute nonsuppurative periodontitides"   
+    ##  [8] "de quervain's disease"                  
+    ##  [9] "cd201 antigen"                          
+    ## [10] "chromosomal puff"
 
 ``` r
 x10 <- corpus %>% 
@@ -107,24 +116,32 @@ x10 <- corpus %>%
   text2df::tif2token() %>%
   text2df::token2mwe(mwe = mwe$TermName)
 
-x10[c(1:3)]
+x10[c(66:68)]
 ```
 
-    ## $`35103814.1`
-    ##  [1] "Psychedelics" ","            "such"         "as"           "psilocybin"  
-    ##  [6] "represent"    "one"          "of"           "the"          "most"        
-    ## [11] "promising"    "current"      "therapeutic"  "approaches"   "in"          
-    ## [16] "psychiatry"   "."           
+    ## $`34267683.14`
+    ## [1] "Public_policy" "implications"  "are"           "discussed"    
+    ## [5] "."            
     ## 
-    ## $`35103814.2`
-    ##  [1] "Psychedelics"   "seem"           "to"             "have"          
-    ##  [5] "not"            "only"           "potent"         "antidepressant"
-    ##  [9] "effects"        "."             
+    ## $`34266372.1`
+    ##  [1] "There"           "is"              "a"               "growing"        
+    ##  [5] "body"            "of"              "research"        "suggesting"     
+    ##  [9] "that"            "palliative_care" "patients"        "coping"         
+    ## [13] "with"            "existential"     "distress"        "may"            
+    ## [17] "benefit"         "from"            "psilocybin"      "."              
     ## 
-    ## $`35103814.3`
-    ##  [1] "Do"           "they"         "also"         "work"         "particularly"
-    ##  [6] "quickly"      ","            "i.e."         "within"       "one"         
-    ## [11] "day"          "?"
+    ## $`34266372.2`
+    ##  [1] "However"         ","               "there"           "is"             
+    ##  [5] "a"               "large"           "gap"             "regarding"      
+    ##  [9] "the"             "perceptions"     "of"              "palliative_care"
+    ## [13] "providers"       "who"             "may"             "provide"        
+    ## [17] "education"       ","               "counseling"      "services"       
+    ## [21] ","               "recommendations" ","               "and"            
+    ## [25] "/"               "or"              "prescriptions"   "for"            
+    ## [29] "psilocybin"      "if"              "it"              "is"             
+    ## [33] "decriminalized"  ","               "commercialized"  ","              
+    ## [37] "and"             "/"               "or"              "federally"      
+    ## [41] "rescheduled"     "and"             "legalized"       "."
 
 ### token2df
 

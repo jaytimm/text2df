@@ -15,6 +15,7 @@ Imports:
     corpus,
     quanteda,
     textshape,
-    udpipe
+    udpipe,
+    pbapply
 Suggests: 
     covr

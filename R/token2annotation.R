@@ -23,7 +23,7 @@ token2annotation <- function(tok,
                function(z) unname(unlist(t0[names(t0) == z])),
                simplify=FALSE)
 
-  t2 <- udpipe::udpipe(object = udmodel,
+  t2 <- udpipe::udpipe(object = model,
                        x = t1,
                        tagger = tagger,
                        parser = parser)

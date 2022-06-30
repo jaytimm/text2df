@@ -3,6 +3,7 @@
 export(tif2parallel)
 export(tif2sentence)
 export(tif2token)
+export(tok2collocations)
 export(token2annotation)
 export(token2df)
 export(token2mwe)

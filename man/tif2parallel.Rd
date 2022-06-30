@@ -9,6 +9,8 @@ tif2parallel(
   mwe = NULL,
   output_dir = NULL,
   ud_model_dir,
+  tagger = "default",
+  parser = "none",
   cores = 6,
   per = 1
 )
@@ -21,6 +23,10 @@ tif2parallel(
 \item{output_dir}{A file path}
 
 \item{ud_model_dir}{A file path}
+
+\item{tagger}{A character string}
+
+\item{parser}{A character string}
 
 \item{cores}{An integer}
 

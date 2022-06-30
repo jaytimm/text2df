@@ -5,6 +5,8 @@
 #' @param mwe A character vector
 #' @param output_dir A file path
 #' @param ud_model_dir A file path
+#' @param tagger A character string
+#' @param parser A character string
 #' @param cores An integer
 #' @param per An integer
 #' @return A list of data frames
@@ -17,6 +19,8 @@ tif2parallel <- function(tif,
                          mwe = NULL,
                          output_dir = NULL, ## '/home/jtimm/Desktop/t2p/',
                          ud_model_dir,
+                         tagger = 'default',
+                         parser = 'none',
                          cores = 6,
                          per = 1){
 
@@ -32,6 +36,8 @@ tif2parallel <- function(tif,
                       tifA = tif2annotation,
                       mwe1 = MWE,
                       od = output_dir,
+                      t0 = tagger,
+                      p0 = parser,
                       mod = udmodel){
 
 
@@ -39,7 +45,10 @@ tif2parallel <- function(tif,
     x <- text2df::tif2token(x)
 
     if(!is.null(mwe1)){x <- text2df::token2mwe(tok = x, mwe = mwe1)}
-    x <- text2df::token2annotation(tok = x, model = udmodel)
+    x <- text2df::token2annotation(tok = x,
+                                   model = udmodel,
+                                   tagger = t0,
+                                   parser = p0)
 
     if(!is.null(od)){
       fn <- paste0(paste0(sample(LETTERS, 3, TRUE),
@@ -60,7 +69,9 @@ tif2parallel <- function(tif,
                                      tifA = tif2annotation,
                                      mwe1 = mwe,
                                      mod = ud_model_dir,
-                                     od = output_dir),
+                                     od = output_dir,
+                                     t0 = tagger,
+                                     p0 = parser),
                            cl = clust)
 
   parallel::stopCluster(clust)
